@@ -42,6 +42,20 @@
     self.mainLabel.text = [NSString stringWithFormat:@"%@ \nLat:%@º - Lon:%@º", self.nameTextField.text, self.latitudeTextField.text, self.longitudeTextField.text];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.detailItem.name = self.nameTextField.text;
+    self.detailItem.latitude = [NSNumber numberWithInteger:[self.latitudeTextField.text integerValue]];
+    self.detailItem.longitude = [NSNumber numberWithInteger:[self.longitudeTextField.text integerValue]];
+
+    NSError *error;
+    
+    [self.detailItem.managedObjectContext save:&error];
+    if (error) {
+        abort();
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
