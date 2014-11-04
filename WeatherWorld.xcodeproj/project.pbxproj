@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		C15A51921A093191002D5F8F /* Mogenerator */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = C15A51931A093191002D5F8F /* Build configuration list for PBXAggregateTarget "Mogenerator" */;
+			buildPhases = (
+				C15A51961A0931A7002D5F8F /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Mogenerator;
+			productName = Mogenerator;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		C15A51631A092EA3002D5F8F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C15A51621A092EA3002D5F8F /* main.m */; };
 		C15A51661A092EA3002D5F8F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C15A51651A092EA3002D5F8F /* AppDelegate.m */; };
@@ -15,6 +29,10 @@
 		C15A51711A092EA3002D5F8F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C15A51701A092EA3002D5F8F /* Images.xcassets */; };
 		C15A51741A092EA3002D5F8F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C15A51721A092EA3002D5F8F /* LaunchScreen.xib */; };
 		C15A51801A092EA3002D5F8F /* WeatherWorldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C15A517F1A092EA3002D5F8F /* WeatherWorldTests.m */; };
+		C15A518E1A092EF4002D5F8F /* WeatherWorld.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C15A518C1A092EF4002D5F8F /* WeatherWorld.xcdatamodeld */; };
+		C15A51911A093099002D5F8F /* PQCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = C15A51901A093099002D5F8F /* PQCoreDataStack.m */; };
+		C15A519B1A0932E4002D5F8F /* _City.m in Sources */ = {isa = PBXBuildFile; fileRef = C15A51981A0932E4002D5F8F /* _City.m */; };
+		C15A519C1A0932E4002D5F8F /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = C15A519A1A0932E4002D5F8F /* City.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +61,13 @@
 		C15A51791A092EA3002D5F8F /* WeatherWorldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherWorldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15A517E1A092EA3002D5F8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C15A517F1A092EA3002D5F8F /* WeatherWorldTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherWorldTests.m; sourceTree = "<group>"; };
+		C15A518D1A092EF4002D5F8F /* WeatherWorld.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WeatherWorld.xcdatamodel; sourceTree = "<group>"; };
+		C15A518F1A093099002D5F8F /* PQCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PQCoreDataStack.h; sourceTree = "<group>"; };
+		C15A51901A093099002D5F8F /* PQCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PQCoreDataStack.m; sourceTree = "<group>"; };
+		C15A51971A0932E4002D5F8F /* _City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _City.h; path = Model/_City.h; sourceTree = "<group>"; };
+		C15A51981A0932E4002D5F8F /* _City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _City.m; path = Model/_City.m; sourceTree = "<group>"; };
+		C15A51991A0932E4002D5F8F /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = City.h; path = Model/City.h; sourceTree = "<group>"; };
+		C15A519A1A0932E4002D5F8F /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = City.m; path = Model/City.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,13 +111,12 @@
 			children = (
 				C15A51641A092EA3002D5F8F /* AppDelegate.h */,
 				C15A51651A092EA3002D5F8F /* AppDelegate.m */,
-				C15A51671A092EA3002D5F8F /* MasterViewController.h */,
-				C15A51681A092EA3002D5F8F /* MasterViewController.m */,
-				C15A516A1A092EA3002D5F8F /* DetailViewController.h */,
-				C15A516B1A092EA3002D5F8F /* DetailViewController.m */,
-				C15A516D1A092EA3002D5F8F /* Main.storyboard */,
+				C15A518F1A093099002D5F8F /* PQCoreDataStack.h */,
+				C15A51901A093099002D5F8F /* PQCoreDataStack.m */,
+				C15A518B1A092EC8002D5F8F /* Controller */,
+				C15A518A1A092EC2002D5F8F /* View */,
+				C15A51891A092EBA002D5F8F /* Model */,
 				C15A51701A092EA3002D5F8F /* Images.xcassets */,
-				C15A51721A092EA3002D5F8F /* LaunchScreen.xib */,
 				C15A51601A092EA3002D5F8F /* Supporting Files */,
 			);
 			path = WeatherWorld;
@@ -122,6 +146,38 @@
 				C15A517E1A092EA3002D5F8F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C15A51891A092EBA002D5F8F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C15A518C1A092EF4002D5F8F /* WeatherWorld.xcdatamodeld */,
+				C15A51991A0932E4002D5F8F /* City.h */,
+				C15A519A1A0932E4002D5F8F /* City.m */,
+				C15A51971A0932E4002D5F8F /* _City.h */,
+				C15A51981A0932E4002D5F8F /* _City.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		C15A518A1A092EC2002D5F8F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C15A516D1A092EA3002D5F8F /* Main.storyboard */,
+				C15A51721A092EA3002D5F8F /* LaunchScreen.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		C15A518B1A092EC8002D5F8F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C15A51671A092EA3002D5F8F /* MasterViewController.h */,
+				C15A51681A092EA3002D5F8F /* MasterViewController.m */,
+				C15A516A1A092EA3002D5F8F /* DetailViewController.h */,
+				C15A516B1A092EA3002D5F8F /* DetailViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +234,9 @@
 						CreatedOnToolsVersion = 6.1;
 						TestTargetID = C15A515C1A092EA3002D5F8F;
 					};
+					C15A51921A093191002D5F8F = {
+						CreatedOnToolsVersion = 6.1;
+					};
 				};
 			};
 			buildConfigurationList = C15A51581A092EA3002D5F8F /* Build configuration list for PBXProject "WeatherWorld" */;
@@ -195,6 +254,7 @@
 			targets = (
 				C15A515C1A092EA3002D5F8F /* WeatherWorld */,
 				C15A51781A092EA3002D5F8F /* WeatherWorldTests */,
+				C15A51921A093191002D5F8F /* Mogenerator */,
 			);
 		};
 /* End PBXProject section */
@@ -219,15 +279,35 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C15A51961A0931A7002D5F8F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "/usr/local/bin/mogenerator --template-var arc=true -O WeatherWorld/Model/ --model WeatherWorld/WeatherWorld.xcdatamodeld/";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C15A51591A092EA3002D5F8F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C15A51911A093099002D5F8F /* PQCoreDataStack.m in Sources */,
+				C15A518E1A092EF4002D5F8F /* WeatherWorld.xcdatamodeld in Sources */,
+				C15A519C1A0932E4002D5F8F /* City.m in Sources */,
 				C15A51661A092EA3002D5F8F /* AppDelegate.m in Sources */,
 				C15A51691A092EA3002D5F8F /* MasterViewController.m in Sources */,
 				C15A51631A092EA3002D5F8F /* main.m in Sources */,
 				C15A516C1A092EA3002D5F8F /* DetailViewController.m in Sources */,
+				C15A519B1A0932E4002D5F8F /* _City.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +479,20 @@
 			};
 			name = Release;
 		};
+		C15A51941A093191002D5F8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C15A51951A093191002D5F8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -427,7 +521,28 @@
 			);
 			defaultConfigurationIsVisible = 0;
 		};
+		C15A51931A093191002D5F8F /* Build configuration list for PBXAggregateTarget "Mogenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C15A51941A093191002D5F8F /* Debug */,
+				C15A51951A093191002D5F8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C15A518C1A092EF4002D5F8F /* WeatherWorld.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C15A518D1A092EF4002D5F8F /* WeatherWorld.xcdatamodel */,
+			);
+			currentVersion = C15A518D1A092EF4002D5F8F /* WeatherWorld.xcdatamodel */;
+			path = WeatherWorld.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C15A51551A092EA3002D5F8F /* Project object */;
 }

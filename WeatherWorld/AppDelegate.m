@@ -8,8 +8,13 @@
 
 #import "AppDelegate.h"
 #import "DetailViewController.h"
+#import "MasterViewController.h"
+
+#import "PQCoreDataStack.h"
 
 @interface AppDelegate ()
+
+@property (nonatomic, strong) NSManagedObjectContext *moc;
 
 @end
 
@@ -18,6 +23,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    
+    MasterViewController *controller = (MasterViewController *)navigationController.topViewController;
+    
+    PQCoreDataStack *coreDataStack = [[PQCoreDataStack alloc] initWithPersistentStoreFileName:@"counters.sqlite" andStoreType:NSSQLiteStoreType];
+    self.moc = [coreDataStack managedObjectContext];
+    controller.managedObjectContext = self.moc;
+    
     return YES;
 }
 
