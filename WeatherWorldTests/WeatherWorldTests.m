@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import "OpenWeatherMap.h"
+#import "PQCoreDataStack.h"
+#import "City.h"
 
 @interface WeatherWorldTests : XCTestCase
 
@@ -15,26 +18,36 @@
 
 @implementation WeatherWorldTests
 
-- (void)setUp {
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+
+
+- (void)testWeatherJSONInfoForBarcelona {
+    OpenWeatherMap *map = [[OpenWeatherMap alloc] init];
+    
+    NSDictionary *d = [map weatherInfoForCity:@"Barcelona"];
+    
+    XCTAssertNotNil(d);
+    XCTAssertNotNil([d objectForKey:@"weather"]);
 }
 
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
+- (void)testUpdateWeatherCoreDataObject {
+    /*
+    PQCoreDataStack *cds = [[PQCoreDataStack alloc] init];
+    
+    NSManagedObjectContext *ctx = [cds managedObjectContext];
+    City *barcelona = [NSEntityDescription insertNewObjectForEntityForName:@"City" inManagedObjectContext:ctx];
+    barcelona.name = @"Barcelona,es";
+    [ctx save:nil];
+    
+    OpenWeatherMap *map = [[OpenWeatherMap alloc] init];
+    
+    NSDictionary *d = [map weatherInfoForCity:barcelona.name];
+
+    [barcelona updateCityDataUsingWeatherData:d];
+    
+    XCTAssertEqualWithAccuracy([barcelona.latitude floatValue], (float)41.39, 0.001);
+    XCTAssertEqualWithAccuracy([barcelona.longitude floatValue], (float)2.16, 0.001);
+     */
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
-}
-
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
-}
 
 @end

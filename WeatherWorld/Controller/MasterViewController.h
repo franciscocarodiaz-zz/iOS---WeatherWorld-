@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CoreDataPoweredTableViewController.h"
 
-@interface MasterViewController : UITableViewController
+@interface MasterViewController : CoreDataPoweredTableViewController
 
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @end
 

@@ -7,12 +7,16 @@
 //
 
 #import "DetailViewController.h"
+#import <PQFCustomLoaders.h>
+#import <MapKit/MapKit.h>
 
 @interface DetailViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *latitudeTextField;
 @property (weak, nonatomic) IBOutlet UITextField *longitudeTextField;
 @property (weak, nonatomic) IBOutlet UILabel *mainLabel;
+
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @end
 
@@ -34,6 +38,10 @@
         self.latitudeTextField.text = [NSString stringWithFormat:@"%@", self.detailItem.latitude];
         self.longitudeTextField.text = [NSString stringWithFormat:@"%@", self.detailItem.longitude];
         [self updateLabel];
+        
+        
+        CLLocationCoordinate2D myCoord = CLLocationCoordinate2DMake([self.detailItem.latitude floatValue], [self.detailItem.longitude floatValue]);
+        [self.mapView setCenterCoordinate:myCoord animated:YES];
         
     }
 }
@@ -60,6 +68,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [self configureView];
+    
+    PQFBouncingBalls *balls = [[PQFBouncingBalls alloc] initLoaderOnView:self.view];
+    [balls show];
 }
 
 - (void)didReceiveMemoryWarning {

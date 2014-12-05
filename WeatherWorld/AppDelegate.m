@@ -7,10 +7,12 @@
 //
 
 #import "AppDelegate.h"
-#import "DetailViewController.h"
 #import "MasterViewController.h"
-
+#import "CountryViewController.h"
 #import "PQCoreDataStack.h"
+#import <CoreLocation/CoreLocation.h>
+#import "City.h"
+
 
 @interface AppDelegate ()
 
@@ -24,13 +26,40 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    PQCoreDataStack *coreDataStack = [[PQCoreDataStack alloc] initWithPersistentStoreFileName:@"counters.sqlite" andStoreType:NSSQLiteStoreType];
+    self.moc = [coreDataStack managedObjectContext];
+    
+    CLLocationManager *manager = [[CLLocationManager alloc] init];
+    [manager requestWhenInUseAuthorization];
+    
+    UITabBarController *tabBar = (UITabBarController *)self.window.rootViewController;
+    
+    UINavigationController *navigationController = (UINavigationController *)[tabBar viewControllers][0];
     
     MasterViewController *controller = (MasterViewController *)navigationController.topViewController;
     
-    PQCoreDataStack *coreDataStack = [[PQCoreDataStack alloc] initWithPersistentStoreFileName:@"counters.sqlite" andStoreType:NSSQLiteStoreType];
-    self.moc = [coreDataStack managedObjectContext];
+
     controller.managedObjectContext = self.moc;
+
+    UINavigationController *navigationController2 = (UINavigationController *)[tabBar viewControllers][1];
+    
+    CountryViewController *controller2 = (CountryViewController *)navigationController2.topViewController;
+
+    controller2.managedObjectContext = self.moc;
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSManagedObjectContext *threadCtx = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+
+        [threadCtx setParentContext:self.moc];
+        City *city = [City insertInManagedObjectContext:threadCtx];
+        
+        city.longitude = @10.0;
+        city.latitude = @10.10;
+        
+        NSError *error;
+        [threadCtx save:&error];
+        NSLog(@"%@", error);
+    });
     
     return YES;
 }

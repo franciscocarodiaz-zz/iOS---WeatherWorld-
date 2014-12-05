@@ -4,9 +4,16 @@
 #import "_City.h"
 
 const struct CityAttributes CityAttributes = {
+	.icon = @"icon",
 	.latitude = @"latitude",
 	.longitude = @"longitude",
 	.name = @"name",
+	.temp = @"temp",
+	.weatherDesc = @"weatherDesc",
+};
+
+const struct CityRelationships CityRelationships = {
+	.country = @"country",
 };
 
 @implementation CityID
@@ -45,9 +52,16 @@ const struct CityAttributes CityAttributes = {
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
+	if ([key isEqualToString:@"tempValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"temp"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 
 	return keyPaths;
 }
+
+@dynamic icon;
 
 @dynamic latitude;
 
@@ -90,6 +104,30 @@ const struct CityAttributes CityAttributes = {
 }
 
 @dynamic name;
+
+@dynamic temp;
+
+- (float)tempValue {
+	NSNumber *result = [self temp];
+	return [result floatValue];
+}
+
+- (void)setTempValue:(float)value_ {
+	[self setTemp:[NSNumber numberWithFloat:value_]];
+}
+
+- (float)primitiveTempValue {
+	NSNumber *result = [self primitiveTemp];
+	return [result floatValue];
+}
+
+- (void)setPrimitiveTempValue:(float)value_ {
+	[self setPrimitiveTemp:[NSNumber numberWithFloat:value_]];
+}
+
+@dynamic weatherDesc;
+
+@dynamic country;
 
 @end
 
